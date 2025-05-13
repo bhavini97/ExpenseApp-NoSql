@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expense Tracker</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: pink;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #4facfe;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: #4facfe;
+  color: #fff;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Expense Tracker</h1>
+    <p>Track your expenses, manage your budget, and stay in control.</p>
+    <div class="buttons">
+      <a href="/auth/login" class="btn">Login</a>
+      <a href="/auth/signup" class="btn">Sign Up</a>
+    </div>
+  </div>
+</body>
+</html>

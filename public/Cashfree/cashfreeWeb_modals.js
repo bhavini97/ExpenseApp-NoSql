@@ -36,7 +36,7 @@ document.getElementById("renderBtn").addEventListener("click", async(event) => {
        }
 
        // start checkout process
-       const result = await new Promise(resolve => {
+       const result = await new Promise((resolve,reject) => {
         setTimeout(async () => {
             try {
                 const checkoutResult = await cashfree.checkout(checkoutOptions);

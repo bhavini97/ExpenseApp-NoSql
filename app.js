@@ -27,6 +27,10 @@ const accessLogStream = fs.createWriteStream(
 
 app.use(morgan('combined',{stream:accessLogStream}))
 
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,"public","landingPage.html"))
+})
+
 app.use('/expense',expRouter);
 
 app.use('/auth',loginSignUpRoutes);

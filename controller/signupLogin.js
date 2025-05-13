@@ -1,6 +1,15 @@
 const authService = require("../Service/authService");
-
+const path = require("path");
 module.exports = {
+
+  getSignUpPage: async(req,res)=>{
+   return res.sendFile(path.join(__dirname, "..", "public", "form.html"));
+  },
+
+  getLoginPage: async(req,res)=>{
+    return res.sendFile(path.join(__dirname, "..", "public", "login.html"));
+  },
+
   addUser: async (req, res) => {
     try {
       const { username, email, password } = req.body;

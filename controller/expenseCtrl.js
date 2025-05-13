@@ -1,9 +1,14 @@
 const uploadToS3 = require("../Service/S3service")
+const path = require("path");
 const AWS = require('aws-sdk')
 const { addExpense, getExpenses, deleteExpense } = require("../Service/expenseService");
 const FileDownload = require('../models/fileDownload');
 
 module.exports = {
+
+  getExpensePage:async(req,res)=>{
+    return res.sendFile(path.join(__dirname, "..", "public", "expense.html"));
+  },
 
   //insert expense data to expense table
   postExpense: async (req, res) => {

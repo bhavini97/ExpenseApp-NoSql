@@ -14,7 +14,6 @@ async function createPaymentOrder(userId) {
 
   // Getting service id from cashfree services file
   const paymentSessionId = await cashfreeService.createOrder(orderId, userId);
-  console.log(paymentSessionId);
 
   await Order.create({
     order_id: orderId,
@@ -70,12 +69,10 @@ async function getPaymentStatus(orderId) {
         );
       }
 
-      return { message: "Payment Successful", orderStatus: order_status };
+      return  order_status;
     }
-    return {
-      message: "Payment status still pending",
-      orderStatus: order_status,
-    };
+    return  order_status
+    
   } catch (err) {
     throw err;
   }

@@ -22,12 +22,12 @@ async function sendResetEmail(email) {
   const resetId = uuidv4();
 
   await ForgotPasswordRequest.create({
-    id: resetId,
+    _id: resetId,
     user_id: user.id,
   });
 
   const sender = { email: "bkumar221b@gmail.com", name: "Reset Password" };
-  const receivers = ["bkumar221b@gmail.com"];
+  const receivers =  [{ email: "bkumar221b@gmail.com" }];;
 
   // setting receiver and sender data and content of mail
   await tranEmailApi.sendTransacEmail({
@@ -45,7 +45,7 @@ async function sendResetEmail(email) {
  */
 async function getResetForm(id) {
   const resetRequest = await ForgotPasswordRequest.findOne({
-    id,
+    _id:id,
     isActive: true,
   });
   // only move forward if token is not expired
@@ -65,7 +65,8 @@ async function getResetForm(id) {
  */
 async function updatePassword(id, password) {
   const resetRequest = await ForgotPasswordRequest.findOne({
-    where: { id, isActive: true },
+    _id: id,
+    isActive: true,
   });
 
   if (!resetRequest) throw new Error("Invalid or expired link!");

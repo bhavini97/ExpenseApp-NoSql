@@ -17,6 +17,7 @@ module.exports = {
 // to get new password form
 getResetForm: async (req, res) => {
   try {
+    
     const formHtml = await passwordService.getResetForm(req.params.id);
     res.send(formHtml);
   } catch (err) {
